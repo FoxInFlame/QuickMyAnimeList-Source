@@ -20,7 +20,7 @@
   height: 30px;
   left: 50%;
   margin-left: -60px;
-  position: absolute;
+  position: relative;
   text-align: center;
   top: 50px;
   width: 120px;
@@ -79,8 +79,8 @@
   display: block;
   font: bold 16px/40px sans-serif;
   height: 40px;
-  line-height: 40px;
-  position: absolute;
+  line-height: 40px !important;
+  position: relative;
   text-align: center;
   text-decoration: none;
   top: -45px;
