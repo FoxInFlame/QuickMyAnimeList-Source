@@ -43,23 +43,23 @@
 .qmal-status-alert:target {
   display: none;
 }
-.qmal-status-alert-span.critical {
+.qmal-status-alert .qmal-status-alert-span.critical {
   /*background-image: url("critical.png");*/
   background-color: #cc3232;
 }
-.qmal-status-alert-span.success {
+.qmal-status-alert .qmal-status-alert-span.success {
   /*background-image: url("success.png");*/
   background-color: #5ac76c;
 }
-.qmal-status-alert-span.info {
+.qmal-status-alert .qmal-status-alert-span.info {
   /*background-image: url("info.png");*/
   background-color: #4966e6;
 }
-.qmal-status-alert-span.warning {
+.qmal-status-alert .qmal-status-alert-span.warning {
   /*background-image: url("warning.png");*/
   background-color: #f09f38;
 }
-.qmal-status-alert-span {
+.qmal-status-alert .qmal-status-alert-span {
   /*background-color: #c4453c;*/
   /*background-image: -webkit-linear-gradient(135deg, transparent,
                     transparent 25%, hsla(0,0%,0%,.05) 25%,
@@ -79,6 +79,7 @@
   display: block;
   font: bold 16px/40px sans-serif;
   height: 40px;
+  line-height: 40px;
   position: absolute;
   text-align: center;
   text-decoration: none;
