@@ -1,0 +1,394 @@
+/*
+[+] ========================================== [+]
+
+----------------QMAL STATUS ALERT----------------
+
+[+] ========================================== [+]
+*/
+.qmal-status-alert {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+.qmal-status-alert:hover:after {
+  background: hsla(0,0%,0%,.8);
+  border-radius: 3px;
+  color: #f6f6f6;
+  content: 'Click to dismiss';
+  font: bold 12px/30px sans-serif;
+  height: 30px;
+  left: 50%;
+  margin-left: -60px;
+  position: absolute;
+  text-align: center;
+  top: 50px;
+  width: 120px;
+}
+.qmal-status-alert.qmal-status-alert-cannot-dismiss:after {
+  content: attr(data-content);
+}
+.qmal-status-alert:hover:before {
+  border-bottom: 10px solid hsla(0,0%,0%,.8);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  content: '';
+  height: 0;
+  left: 50%;
+  margin-left: -10px;
+  position: absolute;
+  top: 40px;
+  width: 0;
+}
+.qmal-status-alert:target {
+  display: none;
+}
+.qmal-status-alert-span.critical {
+  /*background-image: url("critical.png");*/
+  background-color: #cc3232;
+}
+.qmal-status-alert-span.success {
+  /*background-image: url("success.png");*/
+  background-color: #5ac76c;
+}
+.qmal-status-alert-span.info {
+  /*background-image: url("info.png");*/
+  background-color: #4966e6;
+}
+.qmal-status-alert-span.warning {
+  /*background-image: url("warning.png");*/
+  background-color: #f09f38;
+}
+.qmal-status-alert-span {
+  /*background-color: #c4453c;*/
+  /*background-image: -webkit-linear-gradient(135deg, transparent,
+                    transparent 25%, hsla(0,0%,0%,.05) 25%,
+                    hsla(0,0%,0%,.05) 50%, transparent 50%,
+                    transparent 75%, hsla(0,0%,0%,.05) 75%,
+                    hsla(0,0%,0%,.05));
+  /*I'm supposed to like include all the -moz, -ms and -o and stuff but
+  since this is a Chrome Extension, I'm not including it.*/
+  /*background-image: linear-gradient(135deg, transparent,
+                    transparent 25%, hsla(0,0%,0%,.1) 25%,
+                    hsla(0,0%,0%,.1) 50%, transparent 50%,
+                    transparent 75%, hsla(0,0%,0%,.1) 75%,
+                    hsla(0,0%,0%,.1));*/
+  background-size: 20px 20px;
+  box-shadow: 0 5px 0 hsla(0,0%,0%,.1);
+  color: #f6f6f6;
+  display: block;
+  font: bold 16px/40px sans-serif;
+  height: 40px;
+  position: absolute;
+  text-align: center;
+  text-decoration: none;
+  top: -45px;
+  width: 100%;
+  -webkit-animation: qmal-status-alert 1s ease forwards;
+          animation: qmal-status-alert 1s ease forwards;
+}
+
+/* Animation */
+
+@-webkit-keyframes qmal-status-alert {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { top: 0; }
+}
+@keyframes qmal-status-alert {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { top: 0; }
+}
+
+/*
+[+] ========================================== [+]
+
+-------------------QMAL DIALOG-------------------
+
+[+] ========================================== [+]
+*/
+.qmal-dialog div {
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease;
+  -webkit-transition-delay: 0s;
+          transition-property: all;
+          transition-duration: 0.2s;
+          transition-timing-function: ease;
+          transition-delay: 0s;
+}
+
+.qmal-dialog .overlay {
+  position:fixed;
+  background: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+  left:0;
+  top: 0;
+  z-index:998;
+}
+/*
+The two classes below work together
+to center the content vertically and
+horizontally on the screen.
+*/
+
+.qmal-dialog .wrapperInside {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 999;
+}
+
+/*
+The attributes below style the css
+dialog window, and content.
+*/
+
+.qmal-dialog .dialogContainer {
+  /* Form */
+  width: 500px;
+  height: auto;
+  /*
+  Drop Shadow
+  a. Horizontal shadow
+  b. Vertical shadow
+  c. Blur
+  d. Spread
+  e. Color
+  */
+  -webkit-box-shadow: 0 -2px 25px 0 rgba(0, 0, 0, 0.15), 0 13px 25px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 -2px 25px 0 rgba(0, 0, 0, 0.15), 0 13px 25px 0 rgba(0, 0, 0, 0.3);
+  background-color: #FFFFFF;
+  /* Internal padding */
+  padding: 0;
+  /* External padding */
+  margin: 0 auto;
+}
+
+.qmal-dialog .dialogContent {
+  width: auto;
+  height: auto;
+  background-color: #FFFFFF;
+  border-top-left-radius:2px;
+  border-top-right-radius:2px;
+  border-bottom-right-radius:0;
+  border-bottom-left-radius:0;
+  /* Internal padding */
+  padding: 21px 24px 12px 24px;
+  /* External padding */
+  margin: 0;
+}
+
+.qmal-dialog .dialogContentTitle {
+  background-color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: rgba(0,0,0,.8);
+  line-height: 24px;
+  text-align: left;
+  letter-spacing: 0.03px;
+  /* Internal padding */
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  /* External padding */
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+.qmal-dialog .dialogContentBody {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(0,0,0,.5);
+  line-height: 24px;
+  text-align: left;
+  letter-spacing: 0.03px;
+  /* Internal padding */
+  padding-top: 14px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  /* External padding */
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+.qmal-dialog .dialogActionBar {
+  width: auto;
+  background-color: #FFFFFF;
+  text-align: right;
+  /* Corner radius */
+  border-top-left-radius:0;
+  border-top-right-radius:0;
+  border-bottom-right-radius:2px;
+  border-bottom-left-radius:2px;
+  /* Internal padding */
+  padding-top: 0;
+  padding-left: 16px;
+  padding-right: 15px;
+  padding-bottom: 8px;
+  /* External padding */
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+/*
+The attributes below style the
+hit target.
+*/
+
+.qmal-dialog .qmal-button {
+  display: inline-block;
+  background-color: rgba(0,0,0,0);
+  /* Remove grey background on link clicked in ios safari */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/*
+The attributes below style the
+flat button based on the Google
+material design language.
+*/
+
+.qmal-dialog .buttonFlat {
+  /* Form */
+  display: inline-block;
+  height: 36px;
+  background-color: rgba(9,9,9,0);
+  /* Typography */
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: rgba(33,150,243,0.9);
+  line-height: 36px;
+  text-align: center;
+  letter-spacing: 0.4px;
+  /* Internal padding */
+  padding-top: 0;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 0;
+  /* External padding : Touch target size */
+  margin-top: 6px;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-bottom: 6px;
+}
+.qmal-button:hover div {
+  background-color: rgba(99,99,99,0.2)
+}
+.qmal-button:active div {
+  background-color: rgba(99,99,99,0.4)
+}
+
+.qmal-dialog-gogoanime .buttonFlat {
+  color: rgba(255,193,25, 0.9);
+}
+
+.qmal-dialog-crunchyroll .buttonFlat {
+  color: rgba(247,140,37, 0.9);
+}
+
+.qmal-dialog-kissanime .buttonFlat {
+  color: rgba(86,138,3, 0.9);
+}
+
+/*Forms*/
+.qmal-dialog .input-field {
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  margin-top: 1rem;
+}
+.qmal-dialog input {
+  line-height: normal;
+}
+.qmal-dialog button, .qmal-dialog input, .qmal-dialog select, .qmal-dialog textarea {
+  color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+.qmal-dialog input[type=text] {
+  border-color: transparent;
+  border: none;
+  border-bottom: 1px solid #9e9e9e;
+  border-radius: 0;
+  outline: none;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+  margin: 0 3px 15px 3px;
+  padding: 0;
+  box-shadow: none;
+  box-sizing: content-box;
+  transition: 0.5s ease;
+  color: black;
+}
+.qmal-dialog input[type=text]:focus {
+  outline:none;
+  border-bottom: 1px solid #2e51a2;
+  box-shadow: 0 1px 0 0 #2e51a2;
+}
+.qmal-dialog-gogoanime input[type=text]:focus {
+  border-bottom: 1px solid #FFC119;
+  box-shadow: 0 1px 0 0 #FFC119;
+}
+.qmal-dialog-crunchyroll input[type=text]:focus {
+  border-bottom: 1px solid #F78C25;
+  box-shadow: 0 1px 0 0 #F78C25;
+}
+.qmal-dialog-kissanime input[type=text]:focus {
+  border-bottom: 1px solid #568A03;
+  box-shadow: 0 1px 0 0 #568A03;
+}
+.qmal-dialog input[type=text]:focus + label {
+  color: #2e51a2;
+}
+.qmal-dialog label {
+  font-size: 0.9rem;
+  color: #9e9e9e;
+}
+.qmal-dialog .input-field label {
+  color: rgba(0, 0, 0, 0.60);
+  position: absolute;
+  top: 0.8rem;
+  left: 3px;
+  font-size: 1rem;
+  cursor: text;
+  transition: .2s ease;
+}
+.qmal-dialog .input-field label.active {
+  font-size: 0.9rem;
+  -webkit-transform: translateY(-130%);
+  transform: translateY(-130%);
+}
+.qmal-dialog input[type=text].validate + label {
+  width: 100%;
+  pointer-events: none;
+}
+.qmal-dialog input[type=text]:disabled {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.60);
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.26);
+}
+.qmal-dialog input[type=text]:disabled + label {
+  color: rgba(0, 0, 0, 0.40);
+}
+
+
+
+.qmal-dialog input[type=checkbox]:not(:checked), input[type=checkbox]:checked {
+  border: none;
+}
