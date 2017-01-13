@@ -9,7 +9,7 @@
   position: relative;
   top: 0;
   width: 100%;
-  z-index: 9999;
+  z-index: 999999;
 }
 .qmal-status-alert:hover:after {
   background: hsla(0,0%,0%,.8);
@@ -126,7 +126,7 @@
   height: 100%;
   left:0;
   top: 0;
-  z-index:998;
+  z-index:99998;
 }
 /*
 The two classes below work together
@@ -140,7 +140,7 @@ horizontally on the screen.
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  z-index: 999;
+  z-index: 99999;
 }
 
 /*
