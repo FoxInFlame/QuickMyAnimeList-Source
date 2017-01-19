@@ -28,12 +28,6 @@
       "message": "A new version of QMAL (<b>Version 1.3.5</b>) titled 'Small aesthetic changes!' is released. Update ASAP.",
       "dismissable": false,
       "priority": 1
-    },
-    {
-      "style": "info",
-      "message": "Happy new year! 2017 is here!",
-      "dismissable": true,
-      "priority": 4
     }
   ],
   "hidden_message": [
@@ -75,6 +69,12 @@
       "message": "In-page QMAL is not working properly in Version 1.3.4 due to a change in the API. 1.3.5 will come in a few days.",
       "dismissable": true,
       "priority": 3
+    },
+    {
+      "style": "info",
+      "message": "Happy new year! 2017 is here!",
+      "dismissable": true,
+      "priority": 4
     }
   ]
 }
