@@ -35,12 +35,6 @@
       "message": "Version 1.3.6 for QMAL is released. Update ASAP to fix important URL changes.",
       "dismissable": false,
       "priority": 1
-    }, {
-      "condition": "if version is 1.3.6",
-      "style": "success",
-      "message": "Thank you for installing 1.3.6 of QMAL. I hope you are satisfied with this extension.",
-      "dismissable": true,
-      "priority": 3
     }
   ],
   "hidden_message": [
@@ -88,6 +82,12 @@
       "message": "Happy new year! 2017 is here!",
       "dismissable": true,
       "priority": 4
+    }, {
+      "condition": "if version is 1.3.6",
+      "style": "success",
+      "message": "Thank you for installing 1.3.6 of QMAL. I hope you are satisfied with this extension.",
+      "dismissable": true,
+      "priority": 3
     }
   ]
 }
